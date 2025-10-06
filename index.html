@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+    <script src="codigo/1.js"></script>
+    <style>
+      #score {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 24px;
+        color: black;
+        font-family: Arial, sans-serif;
+        z-index: 999;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="score">Puntos: 0</div>
+
+    <a-scene>
+      <!-- Cámara con cursor -->
+      <a-entity id="camera" camera look-controls position="0 1.6 0">
+        <a-cursor
+            id="cursor"
+            fuse="false"
+            raycaster="objects: .shootable"
+            material="color: black; shader: flat"
+            geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
+      ></a-cursor>
+      
+      </a-entity>
+
+      <!-- Objetos para disparar (agregamos clase 'shootable') -->
+      <a-box class="shootable" position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+      <a-sphere class="shootable" position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-cylinder class="shootable" position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+  </body>
+</html>
